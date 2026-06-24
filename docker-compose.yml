@@ -1,0 +1,26 @@
+services:
+  adsb-cleaner:
+    build: .
+    image: adsb-cleaner:latest
+    container_name: adsb-cleaner
+    ports:
+      - "8000:8000"
+    volumes:
+      # Named volumes keep output files available between container restarts.
+      # Replace with host paths (e.g. ./data/outputs:/data/outputs) if you
+      # want direct access to files from the host.
+      - adsb_uploads:/data/uploads
+      - adsb_outputs:/data/outputs
+    environment:
+      # Increase if you need to support uploads larger than 10 GB
+      - MAX_UPLOAD_BYTES=10737418240
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  adsb_uploads:
+  adsb_outputs:
