@@ -10,41 +10,41 @@ Usage for the plain script: python adsb_cleaner.py --input <path_to_input.csv> -
 Usage for Containerised version: 
 
 # Docker Compose
-unzip adsb-cleaner.zip && cd adsb-cleaner
-docker compose up --build -d
+`unzip adsb-cleaner.zip && cd adsb-cleaner
+docker compose up --build -d`
 
 Upload a file
-curl -X POST http://localhost:8000/upload \
-     -F "file=@raw_adsb.csv"
+`curl -X POST http://localhost:8000/upload \
+     -F "file=@raw_adsb.csv"`
 
 Output
-{
+`{
   "download_url":            "/download/a3f8c1d2...",
   "processing_time_seconds": 41.2,
   "output_rows":             198432,
   "expires_at_utc_epoch":    1750000000,
   "expires_at_utc":          "Wed 24 Jun 16:37:00",
   "expires_in_seconds":      14400
-}
+}`
 
-→ {"download_url":"/download/a3f8c1d2...","processing_time_seconds":41.2,"output_rows":198432}
+`{"download_url":"/download/a3f8c1d2...","processing_time_seconds":41.2,"output_rows":198432}`
 
 Download the result
-curl http://localhost:8000/download/a3f8c1d2... -o cleaned.csv
+`curl http://localhost:8000/download/a3f8c1d2... -o cleaned.csv`
 
 By default generated output will be deleted automatically after 4 hours.
 
 # Apple Container
 One-time: start the Apple Container daemon
-container system start
+`container system start`
 
 First run: builds the image and starts the container
-./run.sh
+`./run.sh`
 
 Subsequent runs (image already built, just start it):
-./run.sh
+`./run.sh`
 
 Other commands
-./run.sh --rebuild   # force a fresh image build then start
-./run.sh --logs      # tail live output
-./run.sh --stop      # stop and remove the container
+`./run.sh --rebuild`   # force a fresh image build then start
+`./run.sh --logs`      # tail live output
+`./run.sh --stop`      # stop and remove the container
