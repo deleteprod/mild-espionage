@@ -14,10 +14,12 @@ Usage for Containerised version:
 docker compose up --build -d`
 
 Upload a file
+
 `curl -X POST http://localhost:8000/upload \
      -F "file=@raw_adsb.csv"`
 
 Output
+
 `{
   "download_url":            "/download/a3f8c1d2...",
   "processing_time_seconds": 41.2,
@@ -30,6 +32,7 @@ Output
 `{"download_url":"/download/a3f8c1d2...","processing_time_seconds":41.2,"output_rows":198432}`
 
 Download the result
+
 `curl http://localhost:8000/download/a3f8c1d2... -o cleaned.csv`
 
 By default generated output will be deleted automatically after 4 hours.
