@@ -3,7 +3,7 @@ Python Script (standalone if you wish), Dockerfile, Docker Compose Yaml, and She
 
 ICAO Hex, Date, Time, Callsign, Altitude, Heading, Speed, Latitude, Longitude, Vertical Speed, Squawk:
 
-4CAD51,2026/04/11,08:51:59.267,EAI31M,18025,251,302,51.94954,-2.81372,0,3771
+`4CAD51,2026/04/11,08:51:59.267,EAI31M,18025,251,302,51.94954,-2.81372,0,3771`
 
 Usage for the plain script: python adsb_cleaner.py --input <path_to_input.csv> --output <path_to_cleaned_file.csv>
 
